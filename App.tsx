@@ -244,7 +244,7 @@ function App() {
         {/* PAGE 1: 12 Months Grid */}
         <div className="h-screen flex flex-col" style={{ pageBreakAfter: 'always', breakAfter: 'page' }}>
           {/* Print Header */}
-          <div className="flex-none flex justify-between items-center border-b pb-2 px-2 pt-4">
+          <div className="flex justify-between items-center mb-1 border-b pb-2 px-2 pt-2">
              <div className="flex items-center gap-4">
                {/* Use the dynamically uploaded logo */}
                <img src={logoSrc} alt="Logo" className="h-10 w-auto object-contain" />
@@ -263,9 +263,9 @@ function App() {
           </div>
 
           {/* Grid Layout for Print (3 cols x 4 rows = 12 months) */}
-          {/* Flex grow + justify center ensures equal vertical spacing */}
-          <div className="flex-grow flex flex-col items-center justify-center overflow-visible">
-             <div className="grid grid-cols-3 gap-3 w-full" style={{ transform: 'scale(0.85)', transformOrigin: 'center center', width: '117%' }}>
+          {/* Scaling content to fit page perfectly */}
+          <div className="flex-grow flex items-start justify-center overflow-hidden">
+             <div className="grid grid-cols-3 gap-3 w-full" style={{ transform: 'scale(0.85)', transformOrigin: 'top center', width: '117%' }}>
                 {MONTHS.map((monthName, index) => (
                     <div key={`print-${monthName}`} className="break-inside-avoid">
                       <MonthCard 
@@ -277,7 +277,7 @@ function App() {
              </div>
           </div>
           
-          <div className="flex-none py-2 px-2 text-[10px] text-slate-400 flex justify-between items-center border-t">
+          <div className="mt-auto py-2 px-2 text-[10px] text-slate-400 flex justify-between items-center border-t">
             <div className="flex items-center gap-2">
                <div className="text-amber-600">
                   <AlertTriangle size={12} strokeWidth={2.5} />
