@@ -1,6 +1,6 @@
 import { Holiday, HolidayType } from './types';
 
-export const COMPANY_NAME = "AIloitte";
+export const COMPANY_NAME = "Ailoitte";
 export const YEAR = 2026;
 
 export const HOLIDAYS: Holiday[] = [

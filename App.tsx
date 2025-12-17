@@ -70,7 +70,7 @@ function App() {
               <div className="text-ailoitte-accent font-bold uppercase tracking-wider text-xs mb-1">Year {YEAR}</div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">Company Holidays</h2>
               <p className="text-slate-500 max-w-xl">
-                Plan your year ahead with the official AIloitte holiday schedule.
+                Plan your year ahead with the official Ailoitte holiday schedule.
               </p>
             </div>
             
@@ -167,7 +167,7 @@ function App() {
               ))}
            </div>
            <div className="mt-8 text-center text-xs text-slate-400 border-t pt-4">
-             Generated for AIloitte - 2026
+             Generated for Ailoitte - 2026
            </div>
         </div>
 
