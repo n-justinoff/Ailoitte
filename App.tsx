@@ -244,7 +244,7 @@ function App() {
         {/* PAGE 1: 12 Months Grid */}
         <div className="h-screen flex flex-col" style={{ pageBreakAfter: 'always', breakAfter: 'page' }}>
           {/* Print Header */}
-          <div className="flex justify-between items-center mb-1 border-b pb-2 px-2 pt-2">
+          <div className="flex justify-between items-center mb-8 border-b pb-2 px-2 pt-2">
              <div className="flex items-center gap-4">
                {/* Use the dynamically uploaded logo */}
                <img src={logoSrc} alt="Logo" className="h-10 w-auto object-contain" />
