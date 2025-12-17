@@ -272,8 +272,7 @@ function App() {
         <div className="h-screen flex flex-col pt-6 px-4">
            <div className="flex justify-between items-center mb-6 border-b pb-4">
              <div className="flex items-center gap-4">
-               <img src={logoSrc} alt="Logo" className="h-8 w-auto object-contain opacity-50 grayscale" />
-               <div className="w-px h-6 bg-slate-200"></div>
+               {/* Logo removed here */}
                <h2 className="text-lg font-bold text-slate-800">Holiday List Details</h2>
              </div>
              <div className="text-xs text-slate-400 uppercase">Year {YEAR}</div>
