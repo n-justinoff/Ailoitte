@@ -262,12 +262,19 @@ function App() {
              </div>
           </div>
 
-          {/* Highlighted Note for Print */}
-          <div className="mx-2 mb-2 mt-2 py-2 border-y-2 border-slate-900 bg-slate-50 text-center">
-             <p className="text-[10px] font-bold text-slate-900 uppercase tracking-widest flex items-center justify-center gap-2">
-               <span className="bg-slate-900 text-white px-1.5 py-px rounded-sm">IMPORTANT</span>
-               You may avail only ONE Optional Leave during the year
-             </p>
+          {/* Highlighted Note for Print - Web Style */}
+          <div className="mx-2 mb-3 mt-2 flex justify-center">
+             <div className="relative overflow-hidden bg-white border-l-[3px] border-amber-500 rounded-r p-2 flex items-center gap-3 w-full border border-slate-200">
+                <div className="bg-amber-100 p-1.5 rounded-full text-amber-600 shrink-0">
+                  <AlertTriangle size={14} strokeWidth={2.5} />
+                </div>
+                <div>
+                  <p className="text-amber-600 font-bold text-[8px] uppercase tracking-wider mb-px">Note</p>
+                  <p className="text-slate-800 text-[10px] font-medium leading-tight">
+                    You may avail only <span className="font-bold text-slate-900 border-b border-amber-300">ONE Optional Leave</span> during the year.
+                  </p>
+                </div>
+             </div>
           </div>
 
           {/* Grid Layout for Print (3 cols x 4 rows = 12 months) */}
