@@ -4,7 +4,7 @@ import { HolidayType } from './types';
 import MonthCard from './components/MonthCard';
 import { Logo } from './components/Logo';
 import { Footer } from './components/Footer';
-import { List, Grid3X3, Download, Info, AlertTriangle } from 'lucide-react';
+import { List, Grid3X3, Download, AlertTriangle } from 'lucide-react';
 
 function App() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
