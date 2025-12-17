@@ -4,7 +4,7 @@ import { HolidayType } from './types';
 import MonthCard from './components/MonthCard';
 import { Logo } from './components/Logo';
 import { Footer } from './components/Footer';
-import { List, Grid3X3, Download } from 'lucide-react';
+import { List, Grid3X3, Download, Info, AlertTriangle } from 'lucide-react';
 
 function App() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -154,6 +154,21 @@ function App() {
                  </div>
               </div>
             </div>
+
+            {/* Note about Optional Leave */}
+            <div className="mt-8 flex justify-center md:justify-start">
+               <div className="relative overflow-hidden bg-white border-l-4 border-amber-500 shadow-sm rounded-r-lg p-4 flex items-center gap-4 max-w-2xl w-full ring-1 ring-slate-100">
+                  <div className="bg-amber-100 p-2.5 rounded-full text-amber-600 shrink-0">
+                    <AlertTriangle size={20} strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <p className="text-amber-600 font-bold text-xs uppercase tracking-wider mb-0.5">Note</p>
+                    <p className="text-slate-700 text-sm font-medium">
+                      You may avail only <span className="font-bold text-slate-900 border-b-2 border-amber-300">ONE Optional Leave</span> during the year.
+                    </p>
+                  </div>
+               </div>
+            </div>
           </div>
         </section>
 
@@ -229,7 +244,7 @@ function App() {
         {/* PAGE 1: 12 Months Grid */}
         <div className="h-screen flex flex-col" style={{ pageBreakAfter: 'always', breakAfter: 'page' }}>
           {/* Print Header */}
-          <div className="flex justify-between items-center mb-2 border-b pb-2 px-2 pt-2">
+          <div className="flex justify-between items-center mb-1 border-b pb-2 px-2 pt-2">
              <div className="flex items-center gap-4">
                {/* Use the dynamically uploaded logo */}
                <img src={logoSrc} alt="Logo" className="h-10 w-auto object-contain" />
@@ -245,6 +260,14 @@ function App() {
                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span> {totalOptional} Optional</span>
                </div>
              </div>
+          </div>
+
+          {/* Highlighted Note for Print */}
+          <div className="mx-2 mb-2 mt-2 py-2 border-y-2 border-slate-900 bg-slate-50 text-center">
+             <p className="text-[10px] font-bold text-slate-900 uppercase tracking-widest flex items-center justify-center gap-2">
+               <span className="bg-slate-900 text-white px-1.5 py-px rounded-sm">IMPORTANT</span>
+               You may avail only ONE Optional Leave during the year
+             </p>
           </div>
 
           {/* Grid Layout for Print (3 cols x 4 rows = 12 months) */}
@@ -263,7 +286,7 @@ function App() {
           </div>
           
           <div className="mt-auto py-2 px-2 text-[10px] text-slate-400 flex justify-between border-t">
-            <span>Generated for Ailoitte</span>
+            <span></span>
             <span>Page 1 of 2</span>
           </div>
         </div>
@@ -317,7 +340,7 @@ function App() {
            </div>
 
            <div className="mt-auto py-4 text-[10px] text-slate-400 flex justify-between border-t">
-            <span>*Dates subject to official confirmation</span>
+            <span></span>
             <span>Page 2 of 2</span>
           </div>
         </div>
