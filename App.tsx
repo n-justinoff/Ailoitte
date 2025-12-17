@@ -1,13 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { MONTHS, HOLIDAYS, YEAR } from './constants';
 import { HolidayType } from './types';
 import MonthCard from './components/MonthCard';
 import { Logo } from './components/Logo';
 import { Footer } from './components/Footer';
-import { Calendar, Filter, List, Grid3X3, Download } from 'lucide-react';
+import { List, Grid3X3, Download } from 'lucide-react';
 
 function App() {
-  const [showOptional, setShowOptional] = useState(true);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   const totalMandatory = HOLIDAYS.filter(h => h.type === HolidayType.MANDATORY).length;
