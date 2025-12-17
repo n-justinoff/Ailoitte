@@ -8,6 +8,7 @@ export const HOLIDAYS: Holiday[] = [
   { date: '2026-01-14', name: "Makar Sankranti, Pongal", type: HolidayType.OPTIONAL },
   { date: '2026-01-26', name: "Republic Day", type: HolidayType.MANDATORY },
   { date: '2026-03-04', name: "Holi", type: HolidayType.MANDATORY },
+  { date: '2026-03-19', name: "Chandramana Ugadi", type: HolidayType.OPTIONAL },
   { date: '2026-04-03', name: "Good Friday", type: HolidayType.OPTIONAL },
   { date: '2026-04-14', name: "Baisakhi, Bihu", type: HolidayType.OPTIONAL },
   { date: '2026-05-01', name: "Labour Day", type: HolidayType.MANDATORY },
