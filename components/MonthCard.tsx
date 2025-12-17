@@ -80,8 +80,7 @@ const MonthCard: React.FC<MonthCardProps> = ({ monthIndex, monthName }) => {
                 borderClass = "border border-amber-200";
               }
             } else if (new Date().toDateString() === new Date(YEAR, monthIndex, day).toDateString()) {
-               // Current day logic if this was a live calendar, irrelevant for 2026 static view usually,
-               // but styling "today" is good practice. Since it's 2026, we skip "today".
+               // Current day logic
             }
 
             return (
@@ -94,10 +93,9 @@ const MonthCard: React.FC<MonthCardProps> = ({ monthIndex, monthName }) => {
               >
                 {day}
                 {holiday && (
-                   <div className="absolute opacity-0 group-hover:opacity-100 bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[150px] bg-slate-800 text-white text-xs rounded py-1 px-2 pointer-events-none z-10 shadow-lg text-center">
+                   <div className="absolute opacity-0 group-hover:opacity-100 bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[150px] bg-slate-800 text-white text-xs rounded py-1 px-2 pointer-events-none z-10 shadow-lg text-center print:hidden">
                      {holiday.name}
                      <div className="text-[10px] opacity-75 uppercase mt-0.5">{holiday.type}</div>
-                     {/* Triangle pointer */}
                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
                    </div>
                 )}
@@ -107,8 +105,8 @@ const MonthCard: React.FC<MonthCardProps> = ({ monthIndex, monthName }) => {
         </div>
       </div>
 
-      {/* Mini List for the month */}
-      <div className="px-4 pb-4 pt-0">
+      {/* Mini List for the month - Hidden in print */}
+      <div className="px-4 pb-4 pt-0 print:hidden">
         <div className="space-y-1.5 min-h-[40px]">
           {monthHolidays.map((h, idx) => (
             <div key={idx} className="flex items-start text-xs gap-2">
