@@ -262,21 +262,6 @@ function App() {
              </div>
           </div>
 
-          {/* Highlighted Note for Print - Single Line Compact */}
-          <div className="mx-2 mb-2 mt-1 flex justify-center">
-             <div className="relative overflow-hidden bg-white border-l-[3px] border-amber-500 rounded-r py-1 px-2 flex items-center gap-2 w-full border border-slate-200">
-                <div className="bg-amber-100 p-1 rounded-full text-amber-600 shrink-0">
-                  <AlertTriangle size={12} strokeWidth={2.5} />
-                </div>
-                <div className="flex items-center gap-2 text-[10px]">
-                  <span className="text-amber-600 font-bold uppercase tracking-wider text-[9px]">Note:</span>
-                  <span className="text-slate-800 font-medium">
-                    You may avail only <span className="font-bold text-slate-900 border-b border-amber-300">ONE Optional Leave</span> during the year.
-                  </span>
-                </div>
-             </div>
-          </div>
-
           {/* Grid Layout for Print (3 cols x 4 rows = 12 months) */}
           {/* Scaling content to fit page perfectly */}
           <div className="flex-grow flex items-start justify-center overflow-hidden">
@@ -292,8 +277,16 @@ function App() {
              </div>
           </div>
           
-          <div className="mt-auto py-2 px-2 text-[10px] text-slate-400 flex justify-between border-t">
-            <span></span>
+          <div className="mt-auto py-2 px-2 text-[10px] text-slate-400 flex justify-between items-center border-t">
+            <div className="flex items-center gap-2">
+               <div className="text-amber-600">
+                  <AlertTriangle size={12} strokeWidth={2.5} />
+               </div>
+               <p className="text-slate-600 font-medium">
+                  <span className="text-amber-600 font-bold uppercase tracking-wider text-[9px] mr-1">Note:</span>
+                  You may avail only <span className="font-bold text-slate-900 border-b border-amber-300">ONE Optional Leave</span> during the year.
+               </p>
+            </div>
             <span>Page 1 of 2</span>
           </div>
         </div>
