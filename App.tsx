@@ -24,6 +24,29 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+      <style>{`
+        @media print {
+          @page {
+            margin: 5mm;
+            size: auto;
+          }
+          body {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            background-color: white !important;
+          }
+          /* Ensure shadows and borders print nicely */
+          * {
+            box-shadow: none !important; 
+          }
+          /* Force colorful backgrounds */
+          .bg-ailoitte-accent { background-color: #2563eb !important; color: white !important; }
+          .bg-blue-50 { background-color: #eff6ff !important; }
+          .bg-amber-100 { background-color: #fef3c7 !important; }
+          .bg-amber-50 { background-color: #fffbeb !important; }
+          .bg-blue-100 { background-color: #dbeafe !important; }
+        }
+      `}</style>
       
       {/* =========================================
           WEB VIEW (Hidden on Print)
@@ -179,23 +202,23 @@ function App() {
       {/* =========================================
           PRINT VIEW (Visible only on Print)
           ========================================= */}
-      <div className="hidden print:block w-full h-full bg-white p-4">
+      <div className="hidden print:block w-full h-full bg-white">
         
         {/* PAGE 1: 12 Months Grid */}
-        <div className="min-h-[100vh] flex flex-col" style={{ pageBreakAfter: 'always', breakAfter: 'page' }}>
+        <div className="min-h-screen flex flex-col" style={{ pageBreakAfter: 'always', breakAfter: 'page' }}>
           {/* Print Header */}
-          <div className="flex justify-between items-center mb-6 border-b pb-4">
+          <div className="flex justify-between items-center mb-4 border-b pb-2 px-2 pt-2">
              <div className="flex items-center gap-4">
                {/* Use the dynamically uploaded logo */}
-               <img src={logoSrc} alt="Logo" className="h-10 w-auto object-contain" />
-               <div className="w-px h-8 bg-slate-200"></div>
+               <img src={logoSrc} alt="Logo" className="h-8 w-auto object-contain" />
+               <div className="w-px h-6 bg-slate-200"></div>
                <div>
-                  <h1 className="text-xl font-bold text-slate-800">Holiday Calendar {YEAR}</h1>
-                  <p className="text-[10px] text-slate-500 uppercase tracking-wide">Official Schedule</p>
+                  <h1 className="text-lg font-bold text-slate-800 leading-tight">Holiday Calendar {YEAR}</h1>
+                  <p className="text-[9px] text-slate-500 uppercase tracking-wide">Official Schedule</p>
                </div>
              </div>
              <div className="text-right">
-               <div className="flex gap-3 text-xs">
+               <div className="flex gap-3 text-[10px]">
                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-ailoitte-accent"></span> {totalMandatory} Mandatory</span>
                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-400"></span> {totalOptional} Optional</span>
                </div>
@@ -203,11 +226,11 @@ function App() {
           </div>
 
           {/* Grid Layout for Print (3 cols x 4 rows = 12 months) */}
-          <div className="grid grid-cols-3 gap-x-4 gap-y-4 flex-grow content-start">
+          {/* Adjusted scale to 0.70 to ensure fit on standard paper with header */}
+          <div className="grid grid-cols-3 gap-x-2 gap-y-2 flex-grow content-start px-2">
              {MONTHS.map((monthName, index) => (
-                <div key={`print-${monthName}`} className="break-inside-avoid">
-                  {/* Scale down slightly to ensure all 12 fit on one sheet if margins are tight */}
-                  <div className="transform origin-top-left scale-[0.80] w-[125%] -mb-8">
+                <div key={`print-${monthName}`} className="break-inside-avoid border rounded-lg overflow-hidden">
+                  <div className="transform origin-top-left scale-[0.70] w-[142.8%] h-[142.8%] -mb-[30%] -mr-[30%]">
                     <MonthCard 
                       monthName={monthName} 
                       monthIndex={index} 
@@ -217,31 +240,31 @@ function App() {
               ))}
           </div>
           
-          <div className="mt-auto pt-4 text-[10px] text-slate-400 flex justify-between">
+          <div className="mt-auto pt-2 pb-2 px-2 text-[9px] text-slate-400 flex justify-between border-t">
             <span>Generated for Ailoitte</span>
             <span>Page 1 of 2</span>
           </div>
         </div>
 
         {/* PAGE 2: Holiday List */}
-        <div className="min-h-[100vh] flex flex-col pt-8">
-           <div className="flex justify-between items-center mb-6 border-b pb-4">
+        <div className="min-h-screen flex flex-col pt-4 px-2">
+           <div className="flex justify-between items-center mb-4 border-b pb-2">
              <div className="flex items-center gap-4">
-               <img src={logoSrc} alt="Logo" className="h-8 w-auto object-contain opacity-50 grayscale" />
-               <div className="w-px h-6 bg-slate-200"></div>
+               <img src={logoSrc} alt="Logo" className="h-6 w-auto object-contain opacity-50 grayscale" />
+               <div className="w-px h-5 bg-slate-200"></div>
                <h2 className="text-lg font-bold text-slate-800">Holiday List Details</h2>
              </div>
              <div className="text-[10px] text-slate-400 uppercase">Year {YEAR}</div>
            </div>
 
            <div className="border rounded-lg overflow-hidden">
-             <table className="w-full text-left text-sm">
-                <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase text-slate-500 font-semibold">
+             <table className="w-full text-left text-xs">
+                <thead className="bg-slate-50 border-b border-slate-200 uppercase text-slate-500 font-semibold">
                   <tr>
-                    <th className="px-4 py-3">Date</th>
-                    <th className="px-4 py-3">Day</th>
-                    <th className="px-4 py-3 w-1/2">Holiday Name</th>
-                    <th className="px-4 py-3 text-right">Type</th>
+                    <th className="px-4 py-2">Date</th>
+                    <th className="px-4 py-2">Day</th>
+                    <th className="px-4 py-2 w-1/2">Holiday Name</th>
+                    <th className="px-4 py-2 text-right">Type</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -253,11 +276,11 @@ function App() {
 
                     return (
                       <tr key={idx} className="break-inside-avoid">
-                        <td className="px-4 py-3 font-medium text-slate-900">{formattedDate}</td>
-                        <td className="px-4 py-3 text-slate-500">{dayName}</td>
-                        <td className="px-4 py-3 font-medium text-slate-800">{holiday.name}</td>
-                        <td className="px-4 py-3 text-right">
-                          <span className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide border
+                        <td className="px-4 py-2 font-medium text-slate-900">{formattedDate}</td>
+                        <td className="px-4 py-2 text-slate-500">{dayName}</td>
+                        <td className="px-4 py-2 font-medium text-slate-800">{holiday.name}</td>
+                        <td className="px-4 py-2 text-right">
+                          <span className={`inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wide border
                             ${isMandatory 
                               ? 'bg-blue-50 border-blue-100 text-blue-800' 
                               : 'bg-amber-50 border-amber-100 text-amber-800'
@@ -272,7 +295,7 @@ function App() {
               </table>
            </div>
 
-           <div className="mt-auto pt-4 text-[10px] text-slate-400 flex justify-between">
+           <div className="mt-auto pt-4 pb-4 text-[9px] text-slate-400 flex justify-between">
             <span>*Dates subject to official confirmation</span>
             <span>Page 2 of 2</span>
           </div>

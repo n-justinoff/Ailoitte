@@ -51,10 +51,6 @@ export const Logo: React.FC<LogoProps> = ({
           </div>
         )}
       </div>
-
-      <span className="text-[10px] font-medium text-[#0f172a] tracking-wide ml-0.5 leading-none">
-        Solving What Matters with AI
-      </span>
     </div>
   );
 };
