@@ -262,17 +262,17 @@ function App() {
              </div>
           </div>
 
-          {/* Highlighted Note for Print - Web Style */}
-          <div className="mx-2 mb-3 mt-2 flex justify-center">
-             <div className="relative overflow-hidden bg-white border-l-[3px] border-amber-500 rounded-r p-2 flex items-center gap-3 w-full border border-slate-200">
-                <div className="bg-amber-100 p-1.5 rounded-full text-amber-600 shrink-0">
-                  <AlertTriangle size={14} strokeWidth={2.5} />
+          {/* Highlighted Note for Print - Single Line Compact */}
+          <div className="mx-2 mb-2 mt-1 flex justify-center">
+             <div className="relative overflow-hidden bg-white border-l-[3px] border-amber-500 rounded-r py-1 px-2 flex items-center gap-2 w-full border border-slate-200">
+                <div className="bg-amber-100 p-1 rounded-full text-amber-600 shrink-0">
+                  <AlertTriangle size={12} strokeWidth={2.5} />
                 </div>
-                <div>
-                  <p className="text-amber-600 font-bold text-[8px] uppercase tracking-wider mb-px">Note</p>
-                  <p className="text-slate-800 text-[10px] font-medium leading-tight">
+                <div className="flex items-center gap-2 text-[10px]">
+                  <span className="text-amber-600 font-bold uppercase tracking-wider text-[9px]">Note:</span>
+                  <span className="text-slate-800 font-medium">
                     You may avail only <span className="font-bold text-slate-900 border-b border-amber-300">ONE Optional Leave</span> during the year.
-                  </p>
+                  </span>
                 </div>
              </div>
           </div>
